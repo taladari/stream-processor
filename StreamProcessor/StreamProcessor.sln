@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamProcessor.API", "StreamProcessor.API\StreamProcessor.API.csproj", "{A5398CC3-B720-41B0-BBA2-A434A0AA1E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamProcessor.BL", "StreamProcessor.BL\StreamProcessor.BL.csproj", "{CDB7E046-B112-47BA-ABA2-D9E01C02C9CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5398CC3-B720-41B0-BBA2-A434A0AA1E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5398CC3-B720-41B0-BBA2-A434A0AA1E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5398CC3-B720-41B0-BBA2-A434A0AA1E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5398CC3-B720-41B0-BBA2-A434A0AA1E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDB7E046-B112-47BA-ABA2-D9E01C02C9CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB7E046-B112-47BA-ABA2-D9E01C02C9CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB7E046-B112-47BA-ABA2-D9E01C02C9CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB7E046-B112-47BA-ABA2-D9E01C02C9CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67A4E1BD-B72E-4356-8F8D-A68417500CB9}
+	EndGlobalSection
+EndGlobal
