@@ -36,7 +36,7 @@ Use the swagger on https://localhost:50001/swagger or any other way to do HTTP r
 2. ```/statistics/words GET``` - count of words appearances
 
 ## Improvement Notes
-1. **Synchronization** - At the moment if we scale the application and run multiple producers/consumers or event multiple instances of the entire application we might have unhandled concurrency issues while updating the statistics in the database
+1. **Synchronization** - At the moment if we scale the application and run multiple producers/consumers or even multiple instances of the entire application we might have unhandled concurrency issues while updating the statistics in the database
 2. **Separation** - The processor module could be separated to an entirely different service in order to be more scalable
 3. **Dedicated framework** - Usage of a reactive programming framework would have improved the code and the processing pipeline (more time to study the concept of reactive programming would have helped with this)
 4. **Cleanup** - The application does not entriely clean after itself - the generator executable is not being shut down properly
