@@ -1,4 +1,5 @@
-﻿using StreamProcessor.BL.Models;
+﻿using StreamProcessor.BL.Consumers;
+using StreamProcessor.BL.Models;
 using System;
 using System.IO;
 using System.Text.Json;
@@ -7,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace StreamProcessor.BL.Producers
 {
-    public class MessagesProducer : IProducer<EventMessage>
+    public class MessagesProducer : Producer<EventMessage>
     {
-        public event Func<EventMessage, Task> DataArrived;
-        public event Action<Exception> Error;
         private readonly CancellationToken _cancellationToken;
         private readonly StreamReader _stream;
         private Task _worker;
@@ -21,13 +20,7 @@ namespace StreamProcessor.BL.Producers
             _cancellationToken = cancellationToken;
         }
 
-        public void Subscribe(Func<EventMessage, Task> action, Action<Exception> errorAction)
-        {
-            DataArrived += action;
-            Error += errorAction;
-        }
-
-        public void Start()
+        public override void Start()
         {
             _worker = Task.Factory.StartNew(InnerProcess, _cancellationToken);
         }
@@ -41,7 +34,7 @@ namespace StreamProcessor.BL.Producers
                 try
                 {
                     var eventMessage = JsonSerializer.Deserialize<EventMessage>(input);
-                    OnMessageArrived(eventMessage);
+                    OnDataArrived(eventMessage);
                 }
                 catch (Exception ex)
                 {
@@ -51,9 +44,5 @@ namespace StreamProcessor.BL.Producers
 
             _cancellationToken.ThrowIfCancellationRequested();
         }
-
-        private void OnMessageArrived(EventMessage message) => DataArrived?.Invoke(message);
-
-        private void OnError(Exception ex) => Error?.Invoke(ex);
     }
 }

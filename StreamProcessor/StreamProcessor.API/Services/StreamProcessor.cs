@@ -57,7 +57,7 @@ namespace StreamProcessor.API.Services
             };
 
             foreach (var consumer in consumers)
-                producer.Subscribe(consumer.OnDataArrived, consumer.OnError);
+                producer.Subscribe(consumer);
 
             producer.Start();
         }
